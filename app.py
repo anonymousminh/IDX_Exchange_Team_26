@@ -35,9 +35,9 @@ st.markdown("### ✍️ Enter Property Details")
 
 with st.form("input_form"):
     LivingArea = st.number_input("Living Area (sq ft)", min_value=200, max_value=10000, value=1500)
-    LotSizeAcres = st.number_input("Lot Size (acres)", min_value=0.01, max_value=10.0, value=0.25)
+    LotSizeAcres = st.number_input("Lot Size (acres)", min_value=0.01, max_value=100.0, value=0.25)
     YearBuilt = st.number_input("Year Built", min_value=1800, max_value=2025, value=1990)
-    PropertyType = st.selectbox("Property Type", ["SingleFamilyResidence", "Condo", "Townhouse", "MultiFamily", "Other"])
+    PropertyType = st.selectbox("Property Type", ['Residential', 'ResidentialLease', 'ResidentialIncome', 'Land', 'CommercialLease', 'ManufacturedInPark', 'CommercialSale', 'BusinessOpportunity'])
     City = st.text_input("City", value="San Diego")
     PostalCode = st.text_input("Postal Code", value="92101")
 
