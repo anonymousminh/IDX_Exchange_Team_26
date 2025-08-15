@@ -1,0 +1,7 @@
+# Ignore all pickle files
+*.pkl
+
+# Optional: ignore Python cache and system files
+# __pycache__/
+# *.py[cod]
+# .DS_Store
