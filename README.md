@@ -72,6 +72,14 @@ IDX_Exchange_Team_26/
 
 ## Technical Implementation
 
+## Data Sources
+
+The project utilizes California MLS data including:
+- Property characteristics (living area, lot size, bedrooms, bathrooms)
+- Location data (city, postal code, latitude, longitude)
+- Property details (year built, property type, garage spaces)
+- Market information (days on market, association fees)
+
 ### Data Preprocessing Pipeline
 
 The project implements a sophisticated preprocessing pipeline (`RealEstatePreprocessor`) that:
@@ -82,6 +90,14 @@ The project implements a sophisticated preprocessing pipeline (`RealEstatePrepro
 - Normalizes categorical variables
 - Applies outlier capping for numerical features
 - Maintains preprocessing state for consistent transformations
+
+### Feature Engineering
+
+- **Geospatial Features**: Latitude/longitude clustering and binning
+- **Temporal Features**: Property age calculations
+- **Categorical Encoding**: One-hot encoding with frequency-based imputation
+- **Numerical Transformations**: Log transformations for skewed distributions
+- **Outlier Handling**: 99th percentile capping for extreme values
 
 ### Machine Learning Models
 
@@ -97,22 +113,6 @@ The project implements a sophisticated preprocessing pipeline (`RealEstatePrepro
 3. **LightGBM**
    - Gradient boosting with categorical feature support
    - Optimized hyperparameters for real estate data
-
-### Feature Engineering
-
-- **Geospatial Features**: Latitude/longitude clustering and binning
-- **Temporal Features**: Property age calculations
-- **Categorical Encoding**: One-hot encoding with frequency-based imputation
-- **Numerical Transformations**: Log transformations for skewed distributions
-- **Outlier Handling**: 99th percentile capping for extreme values
-
-## Data Sources
-
-The project utilizes California MLS data including:
-- Property characteristics (living area, lot size, bedrooms, bathrooms)
-- Location data (city, postal code, latitude, longitude)
-- Property details (year built, property type, garage spaces)
-- Market information (days on market, association fees)
 
 ## Usage Examples
 
@@ -150,11 +150,10 @@ input_data = pd.DataFrame({
 prediction = model.predict(preprocess_input(input_data))
 ```
 
-## Model Performance
+## Model Performance on July 2025 Data
 
-- **KNN Model**: MAPE: 0.430, R²: 0.317
-- **Random Forest**: Enhanced performance through feature engineering
-- **LightGBM**: Optimized for categorical and numerical features
+- **Random Forest**: MAPE: 0.1889, R²: 0.8007
+- **LightGBM**: MAPE: 0.1523, R²: 0.7761
 
 ## Key Insights
 
